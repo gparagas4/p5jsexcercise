@@ -1,20 +1,29 @@
-let canvasWidth  = 500;
-let canvasHeight = 600;
-let x = 0 
+let canvasWidth = 900;
+let canvasHeight = 900;
+let x = 0;
+let rectSize = 90;
+let goingForward = true;
 
-function setup() {
-  createCanvas(canvasWidth, canvasHeight);
-  rectmode(CENTER);
+function setup (){
+  createCanvas (canvasWidth, canvasHeight);
+  rectMode (CENTER);
 }
 
-function draw (){
+function draw(){
 
-  background(125);
+  background (125);
 
-if (x== canvasWidth){
-  x=0;
-}
-  rect(x++,canvasHeight/2, 30, 30);
+  if (goingForward){
+    x++;
+  } else {
+    x--;
+  }
+  if (x == canvasWidth) {
+    goingForward = false;
+  }
+  if (x == 0){
+    goingForward = true;
+  }
 
-
+  rect(x, canvasHeight/2, rectSize, rectSize)
 }
